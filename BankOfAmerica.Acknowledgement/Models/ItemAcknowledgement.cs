@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using BankOfAmerica.Acknowledgement.Models.Item;
 
 namespace BankOfAmerica.Acknowledgement.Models
 {
-    class ItemAcknowledgement
+    public class ItemAcknowledgement
     {
+        public ItemAcknowledgement()
+        {
+            Details = new List<FileDetailRecord>();
+        }
+
+        public FileHeaderRecord Header { get; set; }
+        public List<FileDetailRecord> Details { get; set; }
+        public FileControlRecord Control { get; set; }
     }
 }
