@@ -60,8 +60,8 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
             return new FileDetailRecord()
             {
                 FileRejectReasonCategory = source.Substring(2, 57),
-                CashLetterId = source.Substring(62, 8),
-                BundleId = source.Substring(70, 10)
+                CashLetterId             = source.Substring(62, 8),
+                BundleId                 = source.Substring(70, 10)
             };
         }
 
@@ -80,6 +80,8 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
             builder.Append(CashLetterId.PadRight(8));
             builder.Append(BundleId.PadRight(10));
             builder.AppendLine();
+
+            Addendums.ForEach(a => a.ToString(builder));
         }
     }
 }
