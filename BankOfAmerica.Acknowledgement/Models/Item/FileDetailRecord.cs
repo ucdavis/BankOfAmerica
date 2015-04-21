@@ -28,7 +28,7 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
         /// Image Compliance (CDM, IQA, Tiff) – Code line
         ///     data match, Image integrity error, Image
         ///     quality, image format error
-        /// MICR- MICR field error
+        /// MICR - MICR field error
         /// Record Validations – Record error
         /// </summary>
         public string FileRejectReasonCategory { get; set; }
@@ -59,7 +59,9 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
 
             return new FileDetailRecord()
             {
-
+                FileRejectReasonCategory = source.Substring(2, 57),
+                CashLetterId = source.Substring(62, 8),
+                BundleId = source.Substring(70, 10)
             };
         }
 
@@ -73,6 +75,10 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
         public void ToString(StringBuilder builder)
         {
             builder.Append(ItemRecordTypes.FileDetailRecord);
+            builder.Append(FileRejectReasonCategory.PadRight(57));
+            builder.Append(Addendums.Count.ToString().PadLeft(3, '0'));
+            builder.Append(CashLetterId.PadRight(8));
+            builder.Append(BundleId.PadRight(10));
             builder.AppendLine();
         }
     }
