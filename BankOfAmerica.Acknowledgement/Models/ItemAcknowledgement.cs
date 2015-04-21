@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,16 +23,18 @@ namespace BankOfAmerica.Acknowledgement.Models
         {
             var result = new ItemAcknowledgement();
 
-            string line;
+            // first line should be header record
+            var line = reader.ReadLine();
+            if (line == null || line.Substring(0, 2) != ItemRecordTypes.FileHeaderRecord)
+                throw new ArgumentException("stream bad format");
+
+            result.Header = FileHeaderRecord.FromString(line);
+
             while ((line = reader.ReadLine()) != null)
             {
                 var type = line.Substring(0, 2);
-
-                if (type == ItemRecordTypes.FileHeaderRecord)
-                {
-                    result.Header = FileHeaderRecord.FromString(line);
-                }
-                else if (type == ItemRecordTypes.FileDetailRecord)
+                
+                if (type == ItemRecordTypes.FileDetailRecord)
                 {
                     var detail = FileDetailRecord.FromString(line);
                     result.Details.Add(detail);
