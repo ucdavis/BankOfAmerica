@@ -63,10 +63,11 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
         public override string ToString()
         {
             var builder = new StringBuilder();
-            return ToString(builder);
+            ToString(builder);
+            return builder.ToString();
         }
 
-        public string ToString(StringBuilder builder)
+        public void ToString(StringBuilder builder)
         {
             builder.Append(ItemRecordTypes.FileHeaderRecord);
             builder.Append(CustomerId.ToString().PadLeft(6, '0'));
