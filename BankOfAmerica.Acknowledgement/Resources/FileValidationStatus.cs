@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankOfAmerica.Acknowledgement.Resources
 {
-    class FileValidationStatus
+    public static class FileValidationStatus
     {
+        public static string FileReceived = "FILE RECEIVED";
+        public static string FileRejected = "FILE REJECTED";
+        
+        public static string AcceptedNoAdjustments = "ACCEPTED-NO ADJ";
+        public static string AcceptedAdjustmentsReported = "ACCEPTED-ADJ RPTD";
     }
 }
