@@ -76,7 +76,7 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
         {
             builder.Append(ItemRecordTypes.FileDetailRecord);
             builder.Append(FileRejectReasonCategory.PadRight(57));
-            builder.Append(Addendums.Count.ToString().PadLeft(3, '0'));
+            builder.Append(Addendums.Count.ToString("D5"));
             builder.Append(CashLetterId.PadRight(8));
             builder.Append(BundleId.PadRight(10));
             builder.AppendLine();

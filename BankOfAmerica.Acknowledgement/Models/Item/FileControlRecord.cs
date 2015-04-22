@@ -65,10 +65,10 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
         public void ToString(StringBuilder builder)
         {
             builder.Append(ItemRecordTypes.FileControlRecord);
-            builder.Append(TotalCashLetters.ToString().PadLeft(6, '0'));
-            builder.Append(TotalRecordCount.ToString().PadLeft(8, '0'));
-            builder.Append(TotalItemCount.ToString().PadLeft(8, '0'));
-            builder.Append(FileTotalAmount.ToString().PadLeft(16, '0'));
+            builder.Append(TotalCashLetters.ToString("D6"));
+            builder.Append(TotalRecordCount.ToString("D8"));
+            builder.Append(TotalItemCount.ToString("D8"));
+            builder.Append(FileTotalAmount.ToString("D16"));
             builder.Append(Reserved.PadRight(40));
             builder.AppendLine();
         }

@@ -66,8 +66,8 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
         public void ToString(StringBuilder builder)
         {
             builder.Append(ItemRecordTypes.FileDetailAddendumRecord);
-            builder.Append(AddendumRecordNumber.ToString().PadLeft(3, '0'));
-            builder.Append(FileRejectReasonNumber.ToString().PadLeft(2, '0'));
+            builder.Append(AddendumRecordNumber.ToString("D3"));
+            builder.Append(FileRejectReasonNumber.ToString("D2"));
             builder.Append(FileRejectReason.PadRight(73));
             builder.AppendLine();
         }
