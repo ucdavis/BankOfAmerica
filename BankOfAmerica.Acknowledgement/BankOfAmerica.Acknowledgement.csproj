@@ -53,10 +53,10 @@
     <Compile Include="Models\Receipt\ItemDetailAddendumRecord.cs" />
     <Compile Include="Models\Receipt\ItemDetailRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\CashLetterStatus.cs" />
     <Compile Include="Resources\FileValidationStatus.cs" />
     <Compile Include="Resources\ReceiptRecordTypes.cs" />
     <Compile Include="Resources\ItemRecordTypes.cs" />
-    <Compile Include="Resources\ResendIndicator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
