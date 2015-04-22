@@ -45,6 +45,13 @@
     <Compile Include="Models\Item\FileDetailRecord.cs" />
     <Compile Include="Models\Item\FileHeaderRecord.cs" />
     <Compile Include="Models\ReceiptAcknowledgement.cs" />
+    <Compile Include="Models\Receipt\CashLetterControlRecord.cs" />
+    <Compile Include="Models\Receipt\CashLetterHeaderRecord.cs" />
+    <Compile Include="Models\Receipt\CashLetterRecord.cs" />
+    <Compile Include="Models\Receipt\FileControlRecord.cs" />
+    <Compile Include="Models\Receipt\FileHeaderRecord.cs" />
+    <Compile Include="Models\Receipt\ItemDetailAddendumRecord.cs" />
+    <Compile Include="Models\Receipt\ItemDetailRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\FileValidationStatus.cs" />
     <Compile Include="Resources\ReceiptRecordTypes.cs" />
