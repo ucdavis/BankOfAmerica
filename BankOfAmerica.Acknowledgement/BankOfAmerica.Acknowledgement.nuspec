@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>BankOfAmerica.Acknowledgement</id>
+    <version>$version$</version>
+    <title>BankOfAmerica.Acknowledgement</title>
+    <authors>John Knoll</authors>
+    <owners>John Knoll</owners>
+    <projectUrl>https://github.com/ucdavis/BankOfAmerica</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>BankOfAmerica CashLetter Check Lockbox</tags>
+  </metadata>
+</package>
