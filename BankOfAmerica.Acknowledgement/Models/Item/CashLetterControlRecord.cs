@@ -2,7 +2,7 @@
 using System.Text;
 using BankOfAmerica.Acknowledgement.Resources;
 
-namespace BankOfAmerica.Acknowledgement.Models.Receipt
+namespace BankOfAmerica.Acknowledgement.Models.Item
 {
     /// <summary>
     /// The Cash Letter Control Record follows the Cash Letter Header Record if no items are rejected or the last Detail
@@ -45,7 +45,7 @@ namespace BankOfAmerica.Acknowledgement.Models.Receipt
         public static CashLetterControlRecord FromString(string source)
         {
             // check record type
-            if (source.Substring(0, 2) != ReceiptRecordTypes.CashLetterControlRecord)
+            if (source.Substring(0, 2) != ItemRecordTypes.CashLetterControlRecord)
                 throw new ArgumentException();
 
             return new CashLetterControlRecord()
@@ -65,7 +65,7 @@ namespace BankOfAmerica.Acknowledgement.Models.Receipt
 
         public void ToString(StringBuilder builder)
         {
-            builder.Append(ReceiptRecordTypes.CashLetterControlRecord);
+            builder.Append(ItemRecordTypes.CashLetterControlRecord);
             builder.Append(TotalRejectedCount.ToString("D8"));
             builder.Append(TotalRejectedAmount.ToString("D14"));
             builder.Append(Reserved.PadRight(56));

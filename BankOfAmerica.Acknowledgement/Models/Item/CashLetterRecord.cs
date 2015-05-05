@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace BankOfAmerica.Acknowledgement.Models.Receipt
+namespace BankOfAmerica.Acknowledgement.Models.Item
 {
     /// <summary>
     /// Contains the CheckLetter Header, Control and any Details

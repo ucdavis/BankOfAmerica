@@ -12,11 +12,11 @@ namespace BankOfAmerica.Acknowledgement.Models
     {
         public ReceiptAcknowledgement()
         {
-            CashLetters = new List<CashLetterRecord>();
+            Details = new List<FileDetailRecord>();
         }
 
         public FileHeaderRecord Header { get; set; }
-        public List<CashLetterRecord> CashLetters { get; set; }
+        public List<FileDetailRecord> Details { get; set; }
         public FileControlRecord Control { get; set; }
 
         public static ReceiptAcknowledgement FromString(StreamReader reader)
@@ -33,28 +33,17 @@ namespace BankOfAmerica.Acknowledgement.Models
             while ((line = reader.ReadLine()) != null)
             {
                 var type = line.Substring(0, 2);
-
-                if (type == ReceiptRecordTypes.CashLetterHeaderRecord)
+                
+                if (type == ReceiptRecordTypes.FileDetailRecord)
                 {
-                    result.CashLetters.Add(new CashLetterRecord());
-
-                    var header = CashLetterHeaderRecord.FromString(line);
-                    result.CashLetters.Last().Header = header;
+                    var detail = FileDetailRecord.FromString(line);
+                    result.Details.Add(detail);
                 }
-                else if (type == ReceiptRecordTypes.ItemDetailRecord)
+                else if (type == ReceiptRecordTypes.FileDetailAddendumRecord)
                 {
-                    var item = ItemDetailRecord.FromString(line);
-                    result.CashLetters.Last().Details.Add(item);
-                }
-                else if (type == ReceiptRecordTypes.ItemDetailAddendumRecord)
-                {
-                    var addendum = ItemDetailAddendumRecord.FromString(line);
-                    result.CashLetters.Last().Details.Last().Addendums.Add(addendum);
-                }
-                else if (type == ReceiptRecordTypes.CashLetterControlRecord)
-                {
-                    var control = CashLetterControlRecord.FromString(line);
-                    result.CashLetters.Last().Control = control;
+                    var addendum = FileDetailAddendumRecord.FromString(line);
+                    // reference last added detail record
+                    result.Details.Last().Addendums.Add(addendum);
                 }
                 else if (type == ReceiptRecordTypes.FileControlRecord)
                 {
@@ -75,7 +64,7 @@ namespace BankOfAmerica.Acknowledgement.Models
         public void ToString(StringBuilder builder)
         {
             Header.ToString(builder);
-            CashLetters.ForEach(c => c.ToString(builder));
+            Details.ForEach(d => d.ToString(builder));
             Control.ToString(builder);
         }
     }

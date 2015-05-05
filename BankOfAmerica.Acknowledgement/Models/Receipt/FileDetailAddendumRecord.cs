@@ -2,7 +2,7 @@
 using System.Text;
 using BankOfAmerica.Acknowledgement.Resources;
 
-namespace BankOfAmerica.Acknowledgement.Models.Item
+namespace BankOfAmerica.Acknowledgement.Models.Receipt
 {
     /// <summary>
     /// One or more Detail Addendum Records will follow each related Detail Record and contains five fields. This record will
@@ -45,7 +45,7 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
         public static FileDetailAddendumRecord FromString(string source)
         {
             // check record type
-            if (source.Substring(0, 2) != ItemRecordTypes.FileDetailAddendumRecord)
+            if (source.Substring(0, 2) != ReceiptRecordTypes.FileDetailAddendumRecord)
                 throw new ArgumentException();
 
             return new FileDetailAddendumRecord()
@@ -65,7 +65,7 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
 
         public void ToString(StringBuilder builder)
         {
-            builder.Append(ItemRecordTypes.FileDetailAddendumRecord);
+            builder.Append(ReceiptRecordTypes.FileDetailAddendumRecord);
             builder.Append(AddendumRecordNumber.ToString("D3"));
             builder.Append(FileRejectReasonNumber.ToString("D2"));
             builder.Append(FileRejectReason.PadRight(73));

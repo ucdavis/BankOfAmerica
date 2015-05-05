@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using BankOfAmerica.Acknowledgement.Resources;
 
-namespace BankOfAmerica.Acknowledgement.Models.Item
+namespace BankOfAmerica.Acknowledgement.Models.Receipt
 {
     /// <summary>
     /// The File Detail Record is the second record of the acknowledgement 1/receipt acknowledgement data file, following
@@ -54,7 +54,7 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
         public static FileDetailRecord FromString(string source)
         {
             // check record type
-            if (source.Substring(0, 2) != ItemRecordTypes.FileDetailRecord)
+            if (source.Substring(0, 2) != ReceiptRecordTypes.FileDetailRecord)
                 throw new ArgumentException();
 
             return new FileDetailRecord()
@@ -74,7 +74,7 @@ namespace BankOfAmerica.Acknowledgement.Models.Item
 
         public void ToString(StringBuilder builder)
         {
-            builder.Append(ItemRecordTypes.FileDetailRecord);
+            builder.Append(ReceiptRecordTypes.FileDetailRecord);
             builder.Append(FileRejectReasonCategory.PadRight(57));
             builder.Append(Addendums.Count.ToString("D5"));
             builder.Append(CashLetterId.PadRight(8));

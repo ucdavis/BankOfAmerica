@@ -39,24 +39,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\ItemAcknowledgement.cs" />
-    <Compile Include="Models\Item\FileControlRecord.cs" />
-    <Compile Include="Models\Item\FileDetailAddendumRecord.cs" />
-    <Compile Include="Models\Item\FileDetailRecord.cs" />
-    <Compile Include="Models\Item\FileHeaderRecord.cs" />
     <Compile Include="Models\ReceiptAcknowledgement.cs" />
-    <Compile Include="Models\Receipt\CashLetterControlRecord.cs" />
-    <Compile Include="Models\Receipt\CashLetterHeaderRecord.cs" />
-    <Compile Include="Models\Receipt\CashLetterRecord.cs" />
     <Compile Include="Models\Receipt\FileControlRecord.cs" />
+    <Compile Include="Models\Receipt\FileDetailAddendumRecord.cs" />
+    <Compile Include="Models\Receipt\FileDetailRecord.cs" />
     <Compile Include="Models\Receipt\FileHeaderRecord.cs" />
-    <Compile Include="Models\Receipt\ItemDetailAddendumRecord.cs" />
-    <Compile Include="Models\Receipt\ItemDetailRecord.cs" />
+    <Compile Include="Models\ItemAcknowledgement.cs" />
+    <Compile Include="Models\Item\CashLetterControlRecord.cs" />
+    <Compile Include="Models\Item\CashLetterHeaderRecord.cs" />
+    <Compile Include="Models\Item\CashLetterRecord.cs" />
+    <Compile Include="Models\Item\FileControlRecord.cs" />
+    <Compile Include="Models\Item\FileHeaderRecord.cs" />
+    <Compile Include="Models\Item\ItemDetailAddendumRecord.cs" />
+    <Compile Include="Models\Item\ItemDetailRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\CashLetterStatus.cs" />
     <Compile Include="Resources\FileValidationStatus.cs" />
-    <Compile Include="Resources\ReceiptRecordTypes.cs" />
     <Compile Include="Resources\ItemRecordTypes.cs" />
+    <Compile Include="Resources\ReceiptRecordTypes.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

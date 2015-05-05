@@ -2,7 +2,7 @@
 using System.Text;
 using BankOfAmerica.Acknowledgement.Resources;
 
-namespace BankOfAmerica.Acknowledgement.Models.Receipt
+namespace BankOfAmerica.Acknowledgement.Models.Item
 {
     /// <summary>
     /// The Cash Letter Header Record follows the File Header Record or a Cash Letter Control Record (if more than one cash
@@ -59,7 +59,7 @@ namespace BankOfAmerica.Acknowledgement.Models.Receipt
         public static CashLetterHeaderRecord FromString(string source)
         {
             // check record type
-            if (source.Substring(0, 2) != ReceiptRecordTypes.CashLetterHeaderRecord)
+            if (source.Substring(0, 2) != ItemRecordTypes.CashLetterHeaderRecord)
                 throw new ArgumentException();
 
             return new CashLetterHeaderRecord()
@@ -81,7 +81,7 @@ namespace BankOfAmerica.Acknowledgement.Models.Receipt
 
         public void ToString(StringBuilder builder)
         {
-            builder.Append(ReceiptRecordTypes.CashLetterHeaderRecord);
+            builder.Append(ItemRecordTypes.CashLetterHeaderRecord);
             builder.Append(CashLetterId.PadRight(8));
             builder.Append(CashLetterStatus.PadRight(25));
             builder.Append(TotalCount.ToString("D8"));

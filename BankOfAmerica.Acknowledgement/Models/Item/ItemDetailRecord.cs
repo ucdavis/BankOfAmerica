@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using BankOfAmerica.Acknowledgement.Resources;
 
-namespace BankOfAmerica.Acknowledgement.Models.Receipt
+namespace BankOfAmerica.Acknowledgement.Models.Item
 {
     /// <summary>
     /// The Detail Record follows the Cash Letter Header Record or an Item Detail Addendum Record, and contains nine fields.
@@ -75,7 +75,7 @@ namespace BankOfAmerica.Acknowledgement.Models.Receipt
         public static ItemDetailRecord FromString(string source)
         {
             // check record type
-            if (source.Substring(0, 2) != ReceiptRecordTypes.ItemDetailRecord)
+            if (source.Substring(0, 2) != ItemRecordTypes.ItemDetailRecord)
                 throw new ArgumentException();
 
             return new ItemDetailRecord()
@@ -98,7 +98,7 @@ namespace BankOfAmerica.Acknowledgement.Models.Receipt
 
         public void ToString(StringBuilder builder)
         {
-            builder.Append(ReceiptRecordTypes.ItemDetailRecord);
+            builder.Append(ItemRecordTypes.ItemDetailRecord);
             builder.Append(ItemSequenceNumber.PadRight(15));
             builder.Append(BundleId.PadRight(10));
             builder.Append(Amount.ToString("D10"));
